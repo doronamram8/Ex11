@@ -60,7 +60,7 @@ public class CountryAdapter extends ArrayAdapter<Country> {
         name.setText(currCountry.getName());
 
         TextView release = (TextView) listItem.findViewById(R.id.text2);
-        release.setText(currCountry.getDetails());
+        release.setText(currCountry.getShorty());
 
         return listItem;
     }
