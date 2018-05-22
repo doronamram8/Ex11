@@ -26,5 +26,11 @@
         android:textColor="#428FF4"
         android:text="info"
         />
+    <ListView
+        android:id="@+id/countryList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 
 </RelativeLayout>

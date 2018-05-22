@@ -3,7 +3,14 @@ package com.example.madaim.ex11.dummy;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.madaim.ex11.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +43,26 @@ public class CountryAdapter extends ArrayAdapter<Country> {
             in = assetManager.open("countries.xml");
         } catch (IOException e) {e.printStackTrace();}
         return in;
+    }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listItem = convertView;
+        if(listItem == null)
+            listItem = LayoutInflater.from(getContext()).inflate(R.layout.rawitem,parent,false);
+
+        Country currCountry = allCountries.get(position);
+        int resId = parent.getResources().getIdentifier(currCountry.getFlag(), "drawable", getContext().getPackageName());
+
+        ImageView image = (ImageView)listItem.findViewById(R.id.flag);
+        image.setImageResource(resId);
+
+        TextView name = (TextView) listItem.findViewById(R.id.text);
+        name.setText(currCountry.getName());
+
+        TextView release = (TextView) listItem.findViewById(R.id.text2);
+        release.setText(currCountry.getDetails());
+
+        return listItem;
     }
 
 
