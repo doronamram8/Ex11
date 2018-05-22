@@ -6,8 +6,10 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.madaim.ex11.R;
@@ -50,7 +52,7 @@ public class CountryAdapter extends ArrayAdapter<Country> {
         if(listItem == null)
             listItem = LayoutInflater.from(getContext()).inflate(R.layout.rawitem,parent,false);
 
-        Country currCountry = allCountries.get(position);
+        Country currCountry = getItem(position);
         int resId = parent.getResources().getIdentifier(currCountry.getFlag(), "drawable", getContext().getPackageName());
 
         ImageView image = (ImageView)listItem.findViewById(R.id.flag);
@@ -61,9 +63,14 @@ public class CountryAdapter extends ArrayAdapter<Country> {
 
         TextView release = (TextView) listItem.findViewById(R.id.text2);
         release.setText(currCountry.getShorty());
+        listItem.setTag(currCountry.details);
 
         return listItem;
     }
+    public void delete(int index){
+        remove(getItem(index));
+        allCountries.remove(index);
 
+    }
 
 }
