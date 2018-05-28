@@ -2,6 +2,8 @@ package com.example.madaim.ex11.dummy;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.preference.CheckBoxPreference;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,5 +74,7 @@ public class CountryAdapter extends ArrayAdapter<Country> {
         allCountries.remove(index);
 
     }
-
+    public void removingfromList(){
+        CheckBoxPreference ch;
+    }
 }

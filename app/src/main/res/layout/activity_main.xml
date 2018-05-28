@@ -5,12 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.madaim.ex11.MainActivity">
+
+
+
     <fragment
         android:id="@+id/frag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.example.madaim.ex11.Countries"
+        android:layout_below="@id/tb"
         ></fragment>
 
 
+    <Toolbar
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@android:style/Theme.WithActionBar" />
 </RelativeLayout>
